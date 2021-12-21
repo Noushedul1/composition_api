@@ -11,13 +11,13 @@ export default {
   name: 'Home',
   setup(){
     console.log('setup');
-    const p = ref({name: 'akib',age: 25});
+    const p = reactive({name: 'akib',age: 25});
     const clickhandle = () =>{
       // console.log(p, p.value);
       // p.value.classList.add('noushed');
       // p.value.textContent= 'hello noushedul islam';
-      p.value.name = 'noushedul';
-      p.value.age = 26;
+      p.name = 'noushedul';
+      p.age = 26;
     }
     return {clickhandle, p}
   }
