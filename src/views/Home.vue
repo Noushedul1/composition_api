@@ -12,12 +12,14 @@ export default {
   setup(){
     console.log('setup');
     const p = ref(null);
-    const name = 'akib';
-    const age = 25;
+    const name = ref('akib');
+    const age = ref(25);
     const clickhandle = () =>{
-      console.log(p, p.value);
-      p.value.classList.add('noushed');
-      p.value.textContent= 'hello noushedul islam';
+      // console.log(p, p.value);
+      // p.value.classList.add('noushed');
+      // p.value.textContent= 'hello noushedul islam';
+      name.value = 'noushedul';
+      age.value = 26;
     }
     return {name, age, clickhandle, p}
   }
