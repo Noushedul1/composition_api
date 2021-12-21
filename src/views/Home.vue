@@ -1,30 +1,25 @@
 <template>
   <div class="home">
-    <p ref="p">{{name}} is {{age}} years old</p>
+    <p>{{p.name}} is {{p.age}} years old</p>
     <button @click="clickhandle()">click me</button>
-    <input type="text" v-model="name">
-    <!-- <input type="number" v-model="age"> -->
-    <button @click="age++">add 1 to age</button>
   </div>
 </template>
 
 <script>
-import {ref} from 'vue';
+import {ref,reactive} from 'vue';
 export default {
   name: 'Home',
   setup(){
     console.log('setup');
-    const p = ref(null);
-    const name = ref('akib');
-    const age = ref(25);
+    const p = ref({name: 'akib',age: 25});
     const clickhandle = () =>{
       // console.log(p, p.value);
       // p.value.classList.add('noushed');
       // p.value.textContent= 'hello noushedul islam';
-      name.value = 'noushedul';
-      age.value = 26;
+      p.value.name = 'noushedul';
+      p.value.age = 26;
     }
-    return {name, age, clickhandle, p}
+    return {clickhandle, p}
   }
 }
 </script>
