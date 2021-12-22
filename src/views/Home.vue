@@ -1,25 +1,18 @@
 <template>
   <div class="home">
-    <p>{{p.name}} is {{p.age}} years old</p>
-    <button @click="clickhandle()">click me</button>
+    <p>{{p}}</p>
   </div>
 </template>
 
 <script>
-import {ref,reactive} from 'vue';
+import {computed, ref} from 'vue';
 export default {
   name: 'Home',
   setup(){
-    console.log('setup');
-    const p = reactive({name: 'akib',age: 25});
-    const clickhandle = () =>{
-      // console.log(p, p.value);
-      // p.value.classList.add('noushed');
-      // p.value.textContent= 'hello noushedul islam';
-      p.name = 'noushedul';
-      p.age = 26;
-    }
-    return {clickhandle, p}
+    const p = computed(()=>{
+      return 'noushed';
+    });
+    return {p}
   }
 }
 </script>
