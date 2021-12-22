@@ -1,6 +1,8 @@
 <template>
   <div class="home">
-    <p>{{p}}</p>
+    <p v-for="name in names" :key="name">
+      {{name}}
+    </p>
   </div>
 </template>
 
@@ -9,10 +11,8 @@ import {computed, ref} from 'vue';
 export default {
   name: 'Home',
   setup(){
-    const p = computed(()=>{
-      return 'noushed';
-    });
-    return {p}
+    const names = ref(['akib','aki','shaki','mohima','arman']);
+    return {names}
   }
 }
 </script>
