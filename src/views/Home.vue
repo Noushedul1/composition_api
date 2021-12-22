@@ -5,6 +5,7 @@
     <p v-for="name in matchingNames" :key="name">
       {{name}}
     </p>
+    <button @click="watchHandle()">stop watch</button>
   </div>
 </template>
 
@@ -15,16 +16,20 @@ export default {
   setup(){
     const search = ref();
     const names = ref(['akib','aki','shaki','mohima','arman']);
-   watch(search, ()=>{
+   const stopwatch = watch(search, ()=>{
      console.log('watching search ...')
    })
-   watchEffect(()=>{
+   const stopeffect = watchEffect(()=>{
      console.log('i am watching.......................', search.value)
    })
+   const watchHandle = ()=>{
+     stopwatch()
+     stopeffect()
+   }
     const matchingNames = computed(()=>{
       return names.value.filter((name)=>name.includes(search.value));
     });
-    return {names,search,matchingNames}
+    return {names,search,matchingNames,watchHandle}
   }
 }
 </script>
